@@ -55,7 +55,9 @@ def evaluate_the_schedule(schedule: Schedule) -> float:
         1
         for c1 in schedule.classes
         for c2 in schedule.classes
-        if set([c1.teachers] if isinstance(c1.teachers, Teacher) else c1.teachers).intersection(
+        if set(
+            [c1.teachers] if isinstance(c1.teachers, Teacher) else c1.teachers
+        ).intersection(
             [c2.teachers] if isinstance(c2.teachers, Teacher) else c2.teachers
         )
         and c1 != c2
@@ -75,7 +77,9 @@ def evaluate_the_schedule(schedule: Schedule) -> float:
         1
         for c1 in schedule.classes
         for c2 in schedule.classes
-        if set([c1.teachers] if isinstance(c1.teachers, Teacher) else c1.teachers).intersection(
+        if set(
+            [c1.teachers] if isinstance(c1.teachers, Teacher) else c1.teachers
+        ).intersection(
             [c2.teachers] if isinstance(c2.teachers, Teacher) else c2.teachers
         )
         and c1.weekday == c2.weekday
@@ -101,7 +105,10 @@ def evaluate_the_schedule(schedule: Schedule) -> float:
         1
         for c1 in schedule.classes
         for c2 in schedule.classes
-        if c1.room == c2.room and c1.weekday == c2.weekday and c1.time_slot == c2.time_slot and c1 != c2
+        if c1.room == c2.room
+        and c1.weekday == c2.weekday
+        and c1.time_slot == c2.time_slot
+        and c1 != c2
     )
     score -= room_time_conflicts
 
